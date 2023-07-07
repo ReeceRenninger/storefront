@@ -1,17 +1,19 @@
 // redux store hub
 import { legacy_createStore as createStore, combineReducers } from "redux";
 import { composeWithDevTools } from "@redux-devtools/extension";
-//TODO:import reducers for categories and products once created
+
 import categoriesReducer from './categories';
 import productsReducer from './products';
 
-let reducers = combineReducers({ 
+let reducers = combineReducers({
   categories: categoriesReducer,
   products: productsReducer,
- });
+});
 
- const store = () => {
+const store = () => {
   return createStore(reducers, composeWithDevTools());
- }
+}
 
- export default store();
+export default store();
+// const map = new Map();
+// map.set('categories', categoriesReducer);

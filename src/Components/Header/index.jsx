@@ -13,7 +13,7 @@ function Header() {
           <Typography
             variant='h4'
             sx={{ color: 'black' }}>
-            The Store Where Dreams Die
+            We Only Accept Doll Hairs Store
           </Typography>
           {/* <Typography
             variant='h6'
