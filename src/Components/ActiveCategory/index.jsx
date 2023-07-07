@@ -11,7 +11,7 @@ function ActiveCategory() {
     <>
       {
 
-        <h1 >Current Category: {activeCategory.displayName}</h1>
+        <h1 id='categoryTitle'>Current Category: {activeCategory.displayName}</h1>
 
       }
 

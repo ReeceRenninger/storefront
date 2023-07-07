@@ -1,9 +1,28 @@
 //TODO: need some type of workable shopping cart on far right later
-function Header () {
+
+import { AppBar, Container, Toolbar, Typography } from '@mui/material';
+function Header() {
   return (
-    <header>
-      <h1>The Store Where Dreams Die</h1>
-    </header>
+    <AppBar
+      position='static'
+      sx={{ backgroundColor: 'white' }}
+    >
+      <Container>
+        <Toolbar
+          disableGutters>
+          <Typography
+            variant='h4'
+            sx={{ color: 'black' }}>
+            The Store Where Dreams Die
+          </Typography>
+          {/* <Typography
+            variant='h6'
+            sx={{ color: 'black' }}>
+            Cart
+          </Typography> */}
+        </Toolbar>
+      </Container>
+    </AppBar>
   )
 }
 
