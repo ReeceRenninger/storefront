@@ -1,7 +1,10 @@
 //TODO: need some type of workable shopping cart on far right later
-
-import { AppBar, Container, Toolbar, Typography } from '@mui/material';
+import { useSelector } from 'react-redux';
+import { AppBar, Button, Container, Toolbar, Typography } from '@mui/material';
 function Header() {
+
+const { cart } = useSelector((state) => state.cart);
+
   return (
     <AppBar
       position='static'
@@ -15,11 +18,9 @@ function Header() {
             sx={{ color: 'black' }}>
             We Only Accept Doll Hairs Store
           </Typography>
-          {/* <Typography
-            variant='h6'
-            sx={{ color: 'black' }}>
-            Cart
-          </Typography> */}
+          <Button>
+            Cart ({cart.length})
+          </Button>
         </Toolbar>
       </Container>
     </AppBar>

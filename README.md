@@ -46,3 +46,57 @@ for now I have none and do not require one
 #### UML
 
 ![Alt text](src/assets/Lab36UML.png)
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+# LAB - Class 37
+
+## Project: Redux - Combined Reducers
+
+### Author: Reece Renninger
+
+### Problem Domain  
+
+In phase 2, we will be adding the “Add to Cart” feature to our application, which will allow our users to not only browse items in the store, but also select them and have them persist in their “shopping cart” for later purchase.
+
+The user stories from Phase 1 remain unchanged. For this phase, we are now adding the following new user stories to meet the new requirements.
+
+    As a user, I want to choose from products in the list and add them to my shopping cart.
+    As a user, I want to see the products that I’ve added to my shopping cart in a growing list on the side of the page”.
+    As a user, I want to change the quantity of items I intend to purchase in the header. i.e. CART (1)
+    As a user, I want to be able to remove an item from my shopping cart.
+
+
+### Links and Resources
+
+- [GitHub Actions ci/cd](https://github.com/ReeceRenninger/storefront/actions)
+- [front-end application]() (when applicable)
+
+### Collaborators
+
+- Sir Ike, The Honorable Nick, The Jester Ryan on the whole lab
+
+### Setup
+
+#### `.env` requirements (where applicable)
+
+for now I have none and do not require one
+
+#### How to initialize/run your application (where applicable)
+
+- e.g. `npm start`
+
+#### How to use your library (where applicable)
+
+#### Features / Routes
+
+- Display products from pre generated state in a redux store that can be changed by user clicks on the categories.
+- Allow users to add products to a cart and display the number of items in cart and what is in the cart.
+
+#### Tests
+
+- npm test
+
+#### UML
+
+![Alt text](src/assets/Lab37UML.png)
