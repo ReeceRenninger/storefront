@@ -1,11 +1,5 @@
-.productCards {
-  display: inline-flex;
-  flex-wrap: wrap; 
-  margin: auto;
-  padding: 5px;
-  width: 25%;
-  align-items: center;
-  justify-content: center;
+.addedItems{
+  text-align: right;
 }
 
 .links{

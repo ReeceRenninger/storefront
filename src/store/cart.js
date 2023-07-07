@@ -1,6 +1,5 @@
 let initialState = {
   cart: [],
-  cartCount: 0,
 };
 
 const cartReducer = (state = initialState, action) => {
@@ -8,13 +7,11 @@ const cartReducer = (state = initialState, action) => {
     case 'ADD_TO_CART':
       return {
         cart: [...state.cart, action.payload],
-        cartCount: state.cartCount + 1,
       }
     case 'REMOVE_FROM_CART':
       return {
       ...state,
        cart: state.cart.filter(item => item.name !== action.payload.name),
-       
       }
     default:
       return state;

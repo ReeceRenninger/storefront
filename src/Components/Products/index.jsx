@@ -6,22 +6,22 @@ import '../../../App.css'
 
 function Products() {
 
-  const dispatch = useDispatch();
   const { products } = useSelector((state) => state.products);
   const { activeCategory } = useSelector((state) => state.categories);
-  console.log('products', products);
+  const dispatch = useDispatch();
+  // console.log(products);
 
   return (
     <When condition={activeCategory}>
-      {products.map((product, index) => (
-        <>
-          <Grid className='productCards' spacing={3} key={`product-${index}`}>
+      <Grid container spacing={2} width="80%" margin="auto">
+        {products.map((product, index) => (
+          <>
             {
               <Grid item xs={12} sm={6} md={6} lg={4}>
-                <Card variant="outlined" sx={{ maxWidth: 345 }}>
+                <Card key={`products-${index}`} sx={{ maxWidth: 345 }}>
                   <CardMedia id="img-container"
                     sx={{ height: 140 }}
-                    image={`https://source.unsplash.com/random/?${product.name}}`}
+                    image={`https://source.unsplash.com/random/?${product.name}`}
                     title="random image"
                   />
                   <CardContent>
@@ -29,24 +29,24 @@ function Products() {
                       Name: {product.name}
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
-                      Price: {product.price} doll hairs
+                      Price: {product.price}
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
                       In-Stock: {product.inStock}
                     </Typography>
                   </CardContent>
                   <CardActions>
-                    <When condition={product.inStock > 0}>
-                    <Button onClick={() => dispatch(addToCart(product))} size="small">Add to Cart</Button>
+                    <When condition={product.inStock}>
+                      <Button size="small" onClick={() => dispatch(addToCart(product))}>Add to Cart</Button>
                     </When>
                     <Button size="small">View Details</Button>
                   </CardActions>
-                </Card >
+                </Card>
               </Grid>
             }
-          </Grid>
-        </>
-      ))}
+          </>
+        ))}
+      </Grid>
     </When>
   )
 }

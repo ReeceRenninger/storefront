@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Box, Button } from '@mui/material';
 import { removeFromCart } from '../../store/actions';
+import '../../../App.css';
 
 function SimpleCart() {
 
@@ -11,7 +12,7 @@ function SimpleCart() {
     <>
     {
       cart.map((product, index) => (
-        <Box key={`cart-${index}`}>
+        <Box className='addedItems' key={`cart-${index}`}>
           {product.name}
           <Button onClick={() => dispatch(removeFromCart(product))} >X</Button>
 

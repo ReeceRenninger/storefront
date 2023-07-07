@@ -17,6 +17,7 @@ function productsReducer(state = initialState, action) {
         ...state,
         products: initialState.products.filter(product => product.category === action.payload.name)
       }
+
     case 'ADD_TO_CART':
       return {
         ...state,
@@ -25,8 +26,8 @@ function productsReducer(state = initialState, action) {
             product.inStock = product.inStock - 1;
           }
         })
-
       }
+
     case 'REMOVE_FROM_CART':
       return {
         ...state,
@@ -35,8 +36,8 @@ function productsReducer(state = initialState, action) {
             product.inStock = product.inStock + 1;
           }
         })
-
       }
+      
     case 'RESET':
       return initialState;
     default:
