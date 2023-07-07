@@ -29,7 +29,6 @@ The following user/developer stories detail the major functionality for this pha
 
 for now I have none and do not require one
 
-
 #### How to initialize/run your application (where applicable)
 
 - e.g. `npm start`
