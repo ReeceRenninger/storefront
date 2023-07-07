@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import changeCategory from '../../store/categories';
+import { changeProducts }  from '../../store/categories';
 
 //TODO: Set up navbar with routes to each category of food and electronics
 //TODO: Have large Text that signifies the active category at center of page
@@ -11,7 +11,7 @@ function Categories () {
   const dispatch = useDispatch();
 
   const categoryHandler = (category) => {  
-    dispatch(changeCategory(category));
+    dispatch(changeProducts(category));
   };
 
     return (
@@ -24,7 +24,7 @@ function Categories () {
                 </article>
               ))
             }
-            <p>NEED 3 LINKS FOR ELECTRONICS, FOOD, AND CLOTHES CATEGORIES REFERENCE LAB IMAGE</p>
+           
         </>
     )
 }

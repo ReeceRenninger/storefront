@@ -6,29 +6,45 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
+import {  useSelector } from 'react-redux';
+// import { changeProducts } from '../../store/products';
+
 //TODO: These will need to be cards that show the product image, name, and have interaction buttons for adding to cart and viewing details
 
-function Products(){
+function Products() {
+
+  const { products } = useSelector((state) => state.products);
+  console.log('products', products);
+
   return (
-    <Card sx={{ maxWidth: 345 }}>
-    <CardMedia id="img-container"
-      sx={{ height: 140 }}
-      image="https://source.unsplash.com/random/?electronics"
-      title="green iguana"
-    />
-    <CardContent>
-      <Typography gutterBottom variant="h5" component="div">
-        Space Wizard Stuff
-      </Typography>
-      <Typography variant="body2" color="text.secondary">
-        Look at all this cool stuff you can buy!
-      </Typography>
-    </CardContent>
-    <CardActions>
-      <Button size="small">Add to Cart</Button>
-      <Button size="small">View Details</Button>
-    </CardActions>
-  </Card>
+    products.map((product, index) => (
+      <>
+        {
+          <Card key={`products-${index}`} sx={{ maxWidth: 345 }}>
+            <CardMedia id="img-container"
+              sx={{ height: 140 }}
+              image={`https://source.unsplash.com/random/?${product.name}}`}
+              title="random image"
+            />
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="div">
+                Name: {product.name}
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                Price: {product.price}
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                In-Stock: {product.inStock}
+              </Typography>
+            </CardContent>
+            <CardActions>
+              <Button size="small">Add to Cart</Button>
+              <Button size="small">View Details</Button>
+            </CardActions>
+          </Card >
+        }
+      </>
+    ))
   )
 }
 

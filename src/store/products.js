@@ -1,9 +1,4 @@
-let initialState = {
-  categories: [
-    { name: 'electronics', displayName: 'Electronics' },
-    { name: 'food', displayName: 'Food' },
-    { name: 'clothing', displayName: 'Clothing' },
-  ],
+let initialState ={
   products: [
     { name: 'TV', category: 'electronics', price: 699.00, inStock: 5 },
     { name: 'Radio', category: 'electronics', price: 99.00, inStock: 15 },
@@ -12,18 +7,16 @@ let initialState = {
     { name: 'Apples', category: 'food', price: .99, inStock: 500 },
     { name: 'Eggs', category: 'food', price: 1.99, inStock: 12 },
     { name: 'Bread', category: 'food', price: 2.39, inStock: 90 },
-  ],
-  activeCategory: '',
+  ]
 };
 
-function categoriesReducer(state = initialState, action) {
-  switch(action.type){
+function productsReducer(state = initialState, action) {
+  switch (action.type) {
     case 'CHANGE_PRODUCTS':
       return {
         ...state,
-        activeCategory: action.payload.name,
         products: initialState.products.filter(product => product.category === action.payload.name)
-    }
+      }
     case 'RESET':
       return initialState;
     default:
@@ -31,14 +24,13 @@ function categoriesReducer(state = initialState, action) {
   }
 }
 
-export const changeCategory = (category) => {
+export const changeProducts = (category) => {
   return {
     type: 'CHANGE_PRODUCTS',
     payload: category,
   }
-
 }
-  
+
 export const reset = () => {
   return {
     type: 'RESET',
@@ -46,4 +38,4 @@ export const reset = () => {
   }
 }
 
-export default categoriesReducer;
+export default productsReducer;
