@@ -36,7 +36,9 @@ function Products() {
                     </Typography>
                   </CardContent>
                   <CardActions>
+                    <When condition={product.inStock > 0}>
                     <Button onClick={() => dispatch(addToCart(product))} size="small">Add to Cart</Button>
+                    </When>
                     <Button size="small">View Details</Button>
                   </CardActions>
                 </Card >

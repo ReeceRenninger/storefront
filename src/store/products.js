@@ -1,4 +1,4 @@
-let initialState ={
+let initialState = {
   products: [
     { name: 'TV', category: 'electronics', price: 699.00, inStock: 5 },
     { name: 'Radio', category: 'electronics', price: 99.00, inStock: 15 },
@@ -16,6 +16,26 @@ function productsReducer(state = initialState, action) {
       return {
         ...state,
         products: initialState.products.filter(product => product.category === action.payload.name)
+      }
+    case 'ADD_TO_CART':
+      return {
+        ...state,
+        inStock: state.products.filter(product => {
+          if (product.name === action.payload.name) {
+            product.inStock = product.inStock - 1;
+          }
+        })
+
+      }
+    case 'REMOVE_FROM_CART':
+      return {
+        ...state,
+        inStock: state.products.filter(product => {
+          if (product.name === action.payload.name) {
+            product.inStock = product.inStock + 1;
+          }
+        })
+
       }
     case 'RESET':
       return initialState;

@@ -14,6 +14,7 @@ const cartReducer = (state = initialState, action) => {
       return {
       ...state,
        cart: state.cart.filter(item => item.name !== action.payload.name),
+       
       }
     default:
       return state;
