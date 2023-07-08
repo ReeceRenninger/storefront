@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { changeProducts }  from '../../store/actions';
+import { changeProducts, reset }  from '../../store/actions';
 import { Button, ButtonGroup } from '@mui/material';
 
 function Categories () {
@@ -19,12 +19,17 @@ function Categories () {
             <ButtonGroup variant="text" aria-label="text button group">
             {
               categories.map((category, index) => (
+              
                 <Button key={`categories-${index}`} className='links' onClick={() => categoryHandler(category)}>
                   {category.displayName} 
                 </Button>
+            
               ))
             }
             </ButtonGroup>
+                <Button onClick={() => reset()}>
+                  RESET
+                </Button>
            
         </>
     )

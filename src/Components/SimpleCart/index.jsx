@@ -1,29 +1,46 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { Box, Button } from '@mui/material';
+import { Box, IconButton, Typography } from "@mui/material";
 import { removeFromCart } from '../../store/actions';
+import DeleteIcon from '@mui/icons-material/Delete';
 import '../../../App.css';
 
-function SimpleCart() {
+const SimpleCart = () => {
 
   const dispatch = useDispatch();
-  const { cart } = useSelector((state) => state.cart); //state.cart or just state?
+  const { cart } = useSelector((state) => state.cart);
 
   return (
     <>
-    {
-      cart.map((product, index) => (
-        <Box className='addedItems' key={`cart-${index}`}>
-          {product.name}
-          <Button onClick={() => dispatch(removeFromCart(product))} >X</Button>
-
-        </Box>
-      ))
-
-    }
+        {
+          cart.map((product, index) => {
+            return (
+              <Box
+                className='cart-items'
+                key={`cart-${index}`}
+                sx={{
+                  justifyContent: "space-between",
+                  display: "flex",
+                  flexDirection: "row",
+                  alignItems: "center",
+                  width: "80px",
+                  margin: 'auto',
+                }}
+              >
+                <Typography>{product.name}</Typography>
+                <IconButton>
+                  <DeleteIcon fontSize="small" onClick={() => dispatch(removeFromCart(product))} />
+                </IconButton>
+              </Box>
+            )
+          }
+          )
+        }
+    
     </>
-  )
-
-
-}
+  );
+};
 
 export default SimpleCart;
+
+
+
