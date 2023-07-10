@@ -100,3 +100,53 @@ for now I have none and do not require one
 #### UML
 
 ![Alt text](src/assets/Lab37UML.png)
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+# LAB - Class 38
+
+## Project: Redux - Asynchronous Actions
+
+### Author: Reece Renninger
+
+### Problem Domain  
+
+In phase 3, we will be connecting our Virtual Store to a live API so that our data is persistent and able to be separately managed.
+
+The user stories from Phases 1 and 2 remain unchanged. For this phase, we are now adding the following new user stories to meet the new requirements.
+
+    As a user, I want to interact with live inventory so that I have confidence that the displayed products are in stock.
+    As a user, I want to know to that when I add an item to my cart, that it is removed from inventory so that no other users can purchase it.
+
+### Links and Resources
+
+- [GitHub Actions ci/cd](https://github.com/ReeceRenninger/storefront/actions)
+- [front-end application]() (when applicable)
+
+### Collaborators
+
+- Sir Ike, The Honorable Nick, The Jester Ryan on the whole lab
+
+### Setup
+
+#### `.env` requirements (where applicable)
+
+for now I have none and do not require one
+
+#### How to initialize/run your application (where applicable)
+
+- e.g. `npm start`
+
+#### How to use your library (where applicable)
+
+#### Features / Routes
+
+- Display products from an API call in a redux store that can be changed by user clicks on the categories.
+
+#### Tests
+
+- npm test
+
+#### UML
+
+![Alt text](src/assets/lab38UML.png)
