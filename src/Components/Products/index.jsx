@@ -9,7 +9,7 @@ import '../../../App.css'
 
 
 function Products() {
-  
+
   useEffect(() => {
     dispatch(getProducts());
   }, []);
@@ -17,8 +17,9 @@ function Products() {
 
   let { products } = useSelector((state) => state);
   products = [products];
-  console.log('THESE ARE MY PRODUCTS', products);
+  // console.log('THESE ARE MY PRODUCTS', products);
   const { activeCategory } = useSelector((state) => state);
+  console.log('activeCategory on the Products page', activeCategory);
   const dispatch = useDispatch();
 
   return (

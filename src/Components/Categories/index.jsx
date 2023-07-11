@@ -2,9 +2,9 @@ import { useDispatch, useSelector } from 'react-redux';
 // import { changeProducts, reset }  from '../../store/actions';
 // import { getProducts } from '../../store/products';
 import { Button, ButtonGroup } from '@mui/material';
-import { getCategories } from '../../store/categories';
+import { CHANGE_PRODUCTS, getCategories } from '../../store/categories';
 import { useEffect } from 'react';
-import { CHANGE_PRODUCTS } from '../../store/products';
+
 function Categories () {
 
   const { categories } = useSelector((state) => state.categories);
@@ -20,7 +20,6 @@ function Categories () {
     dispatch(CHANGE_PRODUCTS(category));
   };
 
-  
     return (
         <>
             <h1>Browse Our Categories</h1>
