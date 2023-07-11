@@ -3,14 +3,14 @@ import { When } from 'react-if';
 import { useSelector, useDispatch } from 'react-redux';
 import { addToCart } from '../../store/actions';
 import '../../../App.css'
-// import { getProducts } from '../../store/products';
+
 
 function Products() {
 
   const { products } = useSelector((state) => state.products);
   const { activeCategory } = useSelector((state) => state.categories);
   const dispatch = useDispatch();
-  // console.log(products);
+
 
   return (
     <When condition={activeCategory}>

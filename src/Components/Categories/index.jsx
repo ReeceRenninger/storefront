@@ -13,8 +13,8 @@ function Categories () {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getProducts());
     dispatch(getCategories());
+    dispatch(getProducts());
   }, []);
 
   const categoryHandler = (category) => {  
