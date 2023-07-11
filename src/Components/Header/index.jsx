@@ -5,7 +5,7 @@ import { AppBar, Box, Button, Container, Toolbar, Typography } from '@mui/materi
 
 function Header() {
 
-const { cart } = useSelector((state) => state.cart);
+const { cart } = useSelector((state) => state);
 
   return (
     <Box sx={{ flexGrow: 1 }}>

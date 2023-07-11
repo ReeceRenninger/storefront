@@ -1,14 +1,14 @@
 import { Button, Card, CardActions, CardContent, CardMedia, Grid, Typography } from '@mui/material';
 import { When } from 'react-if';
 import { useSelector, useDispatch } from 'react-redux';
-import { addToCart } from '../../store/actions';
+import { ADD_TO_CART } from '../../store/cart'; //!!trying to change import with createSlice, think this is broken
 import '../../../App.css'
 
 
 function Products() {
 
   const { products } = useSelector((state) => state.products);
-  const { activeCategory } = useSelector((state) => state.categories);
+  const { activeCategory } = useSelector((state) => state);
   const dispatch = useDispatch();
 
 
@@ -38,7 +38,7 @@ function Products() {
                   </CardContent>
                   <CardActions>
                     <When condition={product.inStock}>
-                      <Button size="small" onClick={() => dispatch(addToCart(product))}>Add to Cart</Button>
+                      <Button size="small" onClick={() => dispatch(ADD_TO_CART(product))}>Add to Cart</Button>
                     </When>
                     <Button size="small">View Details</Button>
                   </CardActions>

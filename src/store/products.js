@@ -1,35 +1,30 @@
-import { createAction, createReducer } from "@reduxjs/toolkit";
-import { GET_PRODUCTS, CHANGE_PRODUCTS, ADD_TO_CART, REMOVE_FROM_CART, RESET } from './constants';
+import { createSlice, createAction, createReducer } from "@reduxjs/toolkit";
+// import { GET_PRODUCTS, CHANGE_PRODUCTS, ADD_TO_CART, REMOVE_FROM_CART, RESET } from './constants';
 import axios from 'axios';
 
-// let initialState = [];
+export const getProducts = () => async(dispatch, getState) => {
+  let response = await axios.get('https://api-js401.herokuapp.com/api/v1/products');
+  console.log('initial product data from API call', response.data.results);
+  dispatch(GET_PRODUCTS(response.data.results));
+}
 
-let initialState = {
-  products: [],
-
-};
-
-export const setProducts = createAction(GET_PRODUCTS);
-
-const productsReducer = createReducer(
-  initialState,
-  {
-
-    [GET_PRODUCTS]: (state, action) => {
+const productsSlice = createSlice({ 
+  name: 'products',
+  initialState: [],
+  reducers: {
+    GET_PRODUCTS: (state, action) => {
       return {
         ...state,
         products: action.payload,
       }
     },
-    
-    [CHANGE_PRODUCTS]: (state, action) => {
+    CHANGE_PRODUCTS: (state, action) => {
       return {
         ...state,
         products: state.products.filter(product => product.category === action.payload.name)
       }
-    }, 
-
-    [ADD_TO_CART]: (state, action) => {
+    },
+    ADD_TO_CART: (state, action) => {
       return {
         ...state,
         inStock: state.products.filter(product => {
@@ -39,8 +34,7 @@ const productsReducer = createReducer(
         })
       }
     },
-
-    [REMOVE_FROM_CART]: (state, action) => {
+    REMOVE_FROM_CART: (state, action) => {
       return {
         ...state,
         inStock: state.products.filter(product => {
@@ -50,20 +44,70 @@ const productsReducer = createReducer(
         })
       }
     },
-
-    [RESET]: (state, action) => {
+    RESET: (state, action) => {
       return state;
     }
-
-  });
-
-  export const getProducts = () => async(dispatch, getState) => {
-    let response = await axios.get('https://api-js401.herokuapp.com/api/v1/products');
-    console.log('initial product data from API call', response.data.results);
-    dispatch(setProducts(response.data.results));
   }
+});
 
-export default productsReducer;
+const { GET_PRODUCTS, CHANGE_PRODUCTS, ADD_TO_CART, REMOVE_FROM_CART, RESET } = productsSlice.actions;
+export default productsSlice.reducer;
+
+// let initialState = {
+//   products: [],
+
+// };
+
+// export const setProducts = createAction(GET_PRODUCTS);
+
+// const productsReducer = createReducer(
+//   initialState,
+//   {
+
+//     [GET_PRODUCTS]: (state, action) => {
+//       return {
+//         ...state,
+//         products: action.payload,
+//       }
+//     },
+    
+//     [CHANGE_PRODUCTS]: (state, action) => {
+//       return {
+//         ...state,
+//         products: state.products.filter(product => product.category === action.payload.name)
+//       }
+//     }, 
+
+//     [ADD_TO_CART]: (state, action) => {
+//       return {
+//         ...state,
+//         inStock: state.products.filter(product => {
+//           if (product.name === action.payload.name) {
+//             product.inStock--;
+//           }
+//         })
+//       }
+//     },
+
+//     [REMOVE_FROM_CART]: (state, action) => {
+//       return {
+//         ...state,
+//         inStock: state.products.filter(product => {
+//           if (product.name === action.payload.name) {
+//             product.inStock++;
+//           }
+//         })
+//       }
+//     },
+
+//     [RESET]: (state, action) => {
+//       return state;
+//     }
+
+//   });
+
+
+// export default productsReducer;
 
 // let initialState = {
 //   products: [

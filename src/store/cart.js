@@ -1,25 +1,41 @@
-import { createReducer } from "@reduxjs/toolkit";
-import { ADD_TO_CART, REMOVE_FROM_CART } from './constants';
+import { createReducer, createSlice } from "@reduxjs/toolkit";
+// import { ADD_TO_CART, REMOVE_FROM_CART } from './constants';
 
-let initialState = {
-  cart: [],
-};
+// let initialState = {
+//   cart: [],
+// };
 
-const cartReducer = createReducer(
-  initialState,
-  {
-    [ADD_TO_CART]: (state,action) => {
-      return [...state.cart, action.payload];
-    },
-    [REMOVE_FROM_CART]: (state, action) => {
-      return {
-        ...state,
-        cart: state.cart.filter(item => item.name !== action.payload.name),
-      }
-    }
+const cartSlice = createSlice({
+  name: 'cart',
+  initialState: [],
+  reducers: {
+    ADD_TO_CART: (state, action) => [...state, {
+      name: action.payload.name,
+      price: action.payload.price,
+    }],
+    REMOVE_FROM_CART: (state, action) => state.filter(product => product.name !== action.payload.name)
+  }
 });
 
-export default cartReducer;
+export const { ADD_TO_CART, REMOVE_FROM_CART } = cartSlice.actions;
+
+export default cartSlice.reducer;
+
+// const cartReducer = createReducer(
+//   initialState,
+//   {
+//     [ADD_TO_CART]: (state,action) => {
+//       return [...state.cart, action.payload];
+//     },
+//     [REMOVE_FROM_CART]: (state, action) => {
+//       return {
+//         ...state,
+//         cart: state.cart.filter(product => product.name !== action.payload.name),
+//       }
+//     }
+// });
+
+// export default cartReducer;
 
 // let initialState = {
 //   cart: [],

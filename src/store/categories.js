@@ -1,47 +1,70 @@
 import axios from "axios";
-import { createAction, createReducer } from "@reduxjs/toolkit";
-import { CHANGE_PRODUCTS, GET_CATEGORIES, RESET } from './constants';
-
-export const setCategories = createAction(GET_CATEGORIES);
-
-let initialState = {
-  categories: [],
-  activeCategory: '',
-};
-
-
-const categoriesReducer = createReducer(
-  initialState,
-  {
-    [GET_CATEGORIES]: (state,action) => {
-      return{
-        ...state,
-        categories: action.payload
-      }
-
-    },
-    [CHANGE_PRODUCTS]: (state, action) => {
-      return {
-        ...state,
-        activeCategory: action.payload, //send all the payload action to use it
-      }
-    },
-    [RESET]: (state, action) => {
-      return {
-        state
-      }
-    }
-  }
-)
+import { createSlice, createAction, createReducer } from "@reduxjs/toolkit";
+// import { CHANGE_PRODUCTS, GET_CATEGORIES, RESET } from './constants';
 
 //function to handle the async for our data getter
 export const getCategories = () => async(dispatch, getState) => {
   let response = await axios.get('https://api-js401.herokuapp.com/api/v1/categories');
   console.log('initial categories from API call', response.data.results);
-  dispatch(setCategories(response.data.results));
+  dispatch(GET_CATEGORIES(response.data.results));
 }
 
-export default categoriesReducer;
+const categorySlice = createSlice({
+  name: 'categories',
+  initialState: {
+    categories: [],
+    activeCategory: '',
+  },
+  reducers: {
+    GET_CATEGORIES: (state, action) => {
+      return {...state, categories: action.payload}
+    },
+    CHANGE_PRODUCTS: (state, action) => {
+      return {...state, activeCategory: action.payload}
+    },
+    RESET: (state, action) => {
+      return {...state}
+    }
+  }
+})
+
+export const { GET_CATEGORIES, CHANGE_PRODUCTS, RESET } = categorySlice.actions;
+export default categorySlice.reducer;
+
+// export const setCategories = createAction(GET_CATEGORIES);
+
+// let initialState = {
+//   categories: [],
+//   activeCategory: '',
+// };
+
+
+// const categoriesReducer = createReducer(
+//   initialState,
+//   {
+//     [GET_CATEGORIES]: (state,action) => {
+//       return{
+//         ...state,
+//         categories: action.payload
+//       }
+
+//     },
+//     [CHANGE_PRODUCTS]: (state, action) => {
+//       return {
+//         ...state,
+//         activeCategory: action.payload, //send all the payload action to use it
+//       }
+//     },
+//     [RESET]: (state, action) => {
+//       return {
+//         state
+//       }
+//     }
+//   }
+// )
+// export default categoriesReducer;
+
+
 
 // let initialState = {
 //   categories: [
