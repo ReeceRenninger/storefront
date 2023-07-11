@@ -1,20 +1,30 @@
 import { Button, Card, CardActions, CardContent, CardMedia, Grid, Typography } from '@mui/material';
 import { When } from 'react-if';
 import { useSelector, useDispatch } from 'react-redux';
-import { ADD_TO_CART } from '../../store/cart'; //!!trying to change import with createSlice, think this is broken
+import { ADD_TO_CART } from '../../store/cart'; //!!trying to change import with createSlice, think this is broken?
+import { getProducts } from '../../store/products';
+import { useEffect } from 'react';
 import '../../../App.css'
 
 
-function Products() {
 
-  const { products } = useSelector((state) => state.products);
+function Products() {
+  
+  useEffect(() => {
+    dispatch(getProducts());
+  }, []);
+
+
+  let { products } = useSelector((state) => state);
+  products = [products];
+  console.log('THESE ARE MY PRODUCTS', products);
   const { activeCategory } = useSelector((state) => state);
   const dispatch = useDispatch();
-
 
   return (
     <When condition={activeCategory}>
       <Grid container spacing={2} width="80%" margin="auto">
+        {/* !! I think this products is undefined so page is breaking */}
         {products.map((product, index) => (
           <>
             {

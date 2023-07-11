@@ -203,9 +203,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import axios from "axios";
 import { createAction, createReducer } from "@reduxjs/toolkit";
-import { CHANGE_PRODUCTS, GET_CATEGORIES, RESET } from './constants';
+import { CHANGE_PRODUCTS, SET_CATEGORIES, RESET } from './constants';
 &nbsp;
-export const setCategories = createAction(GET_CATEGORIES);
+export const setCategories = createAction(SET_CATEGORIES);
 &nbsp;
 let initialState = {
   categories: [],
@@ -216,7 +216,7 @@ let initialState = {
 const categoriesReducer = createReducer(
   initialState,
   {
-    [GET_CATEGORIES]: <span class="fstat-no" title="function not covered" >(s</span>tate,action) =&gt; {
+    [SET_CATEGORIES]: <span class="fstat-no" title="function not covered" >(s</span>tate,action) =&gt; {
 <span class="cstat-no" title="statement not covered" >      return{</span>
         ...state,
         categories: action.payload

@@ -1,10 +1,10 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { changeProducts, reset }  from '../../store/actions';
+// import { changeProducts, reset }  from '../../store/actions';
+// import { getProducts } from '../../store/products';
 import { Button, ButtonGroup } from '@mui/material';
 import { getCategories } from '../../store/categories';
-import { getProducts } from '../../store/products';
 import { useEffect } from 'react';
-
+import { CHANGE_PRODUCTS } from '../../store/products';
 function Categories () {
 
   const { categories } = useSelector((state) => state.categories);
@@ -14,11 +14,10 @@ function Categories () {
 
   useEffect(() => {
     dispatch(getCategories());
-    dispatch(getProducts());
   }, []);
 
   const categoryHandler = (category) => {  
-    dispatch(changeProducts(category));
+    dispatch(CHANGE_PRODUCTS(category));
   };
 
   
