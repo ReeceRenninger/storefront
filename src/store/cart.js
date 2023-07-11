@@ -1,10 +1,12 @@
 import { createReducer } from "@reduxjs/toolkit";
 import { ADD_TO_CART, REMOVE_FROM_CART } from './constants';
 
-let cart = [];
+let initialState = {
+  cart: [],
+};
 
 const cartReducer = createReducer(
-  cart,
+  initialState,
   {
     [ADD_TO_CART]: (state,action) => {
       return [...state.cart, action.payload];

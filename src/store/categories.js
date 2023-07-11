@@ -1,18 +1,24 @@
 import axios from "axios";
 import { createAction, createReducer } from "@reduxjs/toolkit";
-import { CHANGE_PRODUCTS, GET, RESET } from './constants';
+import { CHANGE_PRODUCTS, GET_CATEGORIES, RESET } from './constants';
 
-export const setCategories = createAction(GET);
+export const setCategories = createAction(GET_CATEGORIES);
 
-let categories = [];
-let activeCategory = [];
+let initialState = {
+  categories: [],
+  activeCategory: '',
+};
+
 
 const categoriesReducer = createReducer(
-  categories,
-  activeCategory,
+  initialState,
   {
-    [GET]: (state,action) => {
-      return action.payload;
+    [GET_CATEGORIES]: (state,action) => {
+      return{
+        ...state,
+        categories: action.payload
+      }
+
     },
     [CHANGE_PRODUCTS]: (state, action) => {
       return {

@@ -1,19 +1,25 @@
 import { createAction, createReducer } from "@reduxjs/toolkit";
-import { GET, CHANGE_PRODUCTS, ADD_TO_CART, REMOVE_FROM_CART, RESET } from './constants';
+import { GET_PRODUCTS, CHANGE_PRODUCTS, ADD_TO_CART, REMOVE_FROM_CART, RESET } from './constants';
 import axios from 'axios';
 
 // let initialState = [];
 
-let products = [];
+let initialState = {
+  products: [],
 
-export const setProducts = createAction(GET);
+};
+
+export const setProducts = createAction(GET_PRODUCTS);
 
 const productsReducer = createReducer(
-  products,
+  initialState,
   {
 
-    [GET]: (state, action) => {
-      return action.payload;
+    [GET_PRODUCTS]: (state, action) => {
+      return {
+        ...state,
+        products: action.payload,
+      }
     },
     
     [CHANGE_PRODUCTS]: (state, action) => {

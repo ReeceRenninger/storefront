@@ -11,10 +11,10 @@ function Categories () {
   console.log('categories', categories);
 
   const dispatch = useDispatch();
-  
+
   useEffect(() => {
-    dispatch(getCategories());
     dispatch(getProducts());
+    dispatch(getCategories());
   }, []);
 
   const categoryHandler = (category) => {  
