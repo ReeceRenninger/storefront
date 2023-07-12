@@ -13,13 +13,3 @@ const store = () => configureStore({
 });
 
 export default store();
-
-// let reducers = combineReducers({
-//   categories: categoriesReducer,
-//   products: productsReducer,
-//   cart: cartReducer,
-// });
-
-// const store = () => {
-//   return createStore(reducers, composeWithDevTools(applyMiddleware(thunk)));
-// }

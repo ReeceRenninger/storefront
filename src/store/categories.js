@@ -1,6 +1,6 @@
 import axios from "axios";
 import { createSlice, createAction, createReducer } from "@reduxjs/toolkit";
-// import { CHANGE_PRODUCTS, SET_CATEGORIES, RESET } from './constants';
+
 
 //function to handle the async for our data getter
 export const getCategories = () => async(dispatch, getState) => {
@@ -31,63 +31,4 @@ const categorySlice = createSlice({
 
 export const { SET_CATEGORIES, CHANGE_CATEGORIES, RESET } = categorySlice.actions;
 export default categorySlice.reducer;
-
-// export const setCategories = createAction(SET_CATEGORIES);
-
-// let initialState = {
-//   categories: [],
-//   activeCategory: '',
-// };
-
-
-// const categoriesReducer = createReducer(
-//   initialState,
-//   {
-//     [SET_CATEGORIES]: (state,action) => {
-//       return{
-//         ...state,
-//         categories: action.payload
-//       }
-
-//     },
-//     [CHANGE_PRODUCTS]: (state, action) => {
-//       return {
-//         ...state,
-//         activeCategory: action.payload, //send all the payload action to use it
-//       }
-//     },
-//     [RESET]: (state, action) => {
-//       return {
-//         state
-//       }
-//     }
-//   }
-// )
-// export default categoriesReducer;
-
-
-
-// let initialState = {
-//   categories: [
-//     { name: 'electronics', displayName: 'Electronics' },
-//     { name: 'food', displayName: 'Food' },
-//     { name: 'clothing', displayName: 'Clothing' },
-//   ],
-//   activeCategory: '',
-// };
-
-// function categoriesReducer(state = initialState, action) {
-//   switch(action.type){
-//     case 'CHANGE_PRODUCTS':
-//       return {
-//         ...state,
-//         activeCategory: action.payload, //send all the payload action to use it
-//     }
-//     case 'RESET':
-//       return initialState;
-//     default:
-//       return state;
-//   }
-// }
-
 
