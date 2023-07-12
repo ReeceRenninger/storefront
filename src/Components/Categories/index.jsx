@@ -34,9 +34,9 @@ function Categories () {
               ))
             }
             </ButtonGroup>
-                <Button onClick={() => reset()}>
+                {/* <Button onClick={() => reset()}>
                   RESET
-                </Button>
+                </Button> */}
            
         </>
     )
