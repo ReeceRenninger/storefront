@@ -9,17 +9,18 @@ import '../../../App.css'
 
 
 function Products() {
-
-  useEffect(() => {
-    dispatch(getProducts());
-  }, []);
-
-
-  let { products } = useSelector((state) => state);
-  products = [products];
-  // console.log('THESE ARE MY PRODUCTS', products);
-  const { activeCategory } = useSelector((state) => state);
+  
+  let { products } = useSelector((state) => state.products);
+  // products = [products];
+  console.log('THESE ARE MY PRODUCTS', products);
+  const { activeCategory } = useSelector((state) => state.categories);
   console.log('activeCategory on the Products page', activeCategory);
+  
+  useEffect(() => {
+    dispatch(getProducts(activeCategory.name));
+  }, [activeCategory]);
+
+
   const dispatch = useDispatch();
 
   return (

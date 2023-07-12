@@ -9,6 +9,7 @@ export const getCategories = () => async(dispatch, getState) => {
   dispatch(SET_CATEGORIES(response.data.results));
 }
 
+
 const categorySlice = createSlice({
   name: 'categories',
   initialState: {
@@ -19,7 +20,7 @@ const categorySlice = createSlice({
     SET_CATEGORIES: (state, action) => {
       return {...state, categories: action.payload}
     },
-    CHANGE_PRODUCTS: (state, action) => {
+    CHANGE_CATEGORIES: (state, action) => {
       return {...state, activeCategory: action.payload}
     },
     RESET: (state, action) => {
@@ -28,7 +29,7 @@ const categorySlice = createSlice({
   }
 })
 
-export const { SET_CATEGORIES, CHANGE_PRODUCTS, RESET } = categorySlice.actions;
+export const { SET_CATEGORIES, CHANGE_CATEGORIES, RESET } = categorySlice.actions;
 export default categorySlice.reducer;
 
 // export const setCategories = createAction(SET_CATEGORIES);

@@ -1,14 +1,14 @@
 import { createReducer, createSlice } from "@reduxjs/toolkit";
-// import { ADD_TO_CART, REMOVE_FROM_CART } from './constants';
 
-// let initialState = {
-//   cart: [],
-// };
+let initialState = {
+  cart: [],
+};
 
 const cartSlice = createSlice({
   name: 'cart',
-  initialState: [],
+  initialState,
   reducers: {
+    //!! MAY NEED TO MODIFY THIS IF IKES WORKS AND MINE IS BROKEN
     ADD_TO_CART: (state, action) => [...state, {
       name: action.payload.name,
       price: action.payload.price,

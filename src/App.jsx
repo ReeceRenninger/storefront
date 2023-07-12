@@ -1,20 +1,16 @@
-import Categories from './Components/Categories';
-import Footer from './Components/Footer';
-import Header from './Components/Header'
-import Products from './Components/Products';
-import ActiveCategory from './Components/ActiveCategory';
-import SimpleCart from './Components/SimpleCart';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+
+import Storefront from './Components/Storefront';
 
 function App() {
 
   return (
     <>
-      <Header /> 
-      <Categories />
-      <SimpleCart />
-      <ActiveCategory />
-      <Products />
-      <Footer />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Storefront />} />
+        </Routes>
+      </BrowserRouter>
     </>
   )
 }

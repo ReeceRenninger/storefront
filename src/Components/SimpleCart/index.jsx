@@ -7,7 +7,7 @@ import '../../../App.css';
 const SimpleCart = () => {
 
   const dispatch = useDispatch();
-  const { cart } = useSelector((state) => state);
+  const { cart } = useSelector((state) => state.cart);
 
   return (
     <>
