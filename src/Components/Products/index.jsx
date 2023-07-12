@@ -5,6 +5,7 @@ import { ADD_TO_CART } from '../../store/cart'; //!!trying to change import with
 import { getProducts, removeStock } from '../../store/products';
 import { useEffect } from 'react';
 import '../../../App.css'
+import { Link } from 'react-router-dom';
 
 
 
@@ -57,7 +58,10 @@ const useDispatcher = (product) => {
                     <When condition={product.inStock}>
                       <Button size="small" onClick={() => useDispatcher(product)}>Add to Cart</Button>
                     </When>
-                    <Button size="small">View Details</Button>
+                    <Button 
+                    component={Link}
+                    to={`/products/${product._id}`}
+                    size="small">View Details</Button>
                   </CardActions>
                 </Card>
               </Grid>

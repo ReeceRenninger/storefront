@@ -1,11 +1,12 @@
 import { useSelector } from 'react-redux';
 import { AppBar, Box, Button, Container, Toolbar, Typography } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 
 
 function Header() {
 
-const { cart } = useSelector((state) => state);
+const { cart } = useSelector((state) => state.cart);
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -27,7 +28,10 @@ const { cart } = useSelector((state) => state);
             sx={{ color: 'black' }}>
             We Only Accept Doll Hairs Store
           </Typography>
-          <Button>
+          <Button
+          component={Link}
+          to={'/cart'}
+          >
             Cart ({cart.length})
           </Button>
         </Toolbar>

@@ -1,3 +1,4 @@
+import { When } from 'react-if';
 import { useSelector } from 'react-redux';
 
 function ActiveCategory() {
@@ -9,11 +10,12 @@ function ActiveCategory() {
 
   return (
     <>
-      {
 
-        <h1 id='categoryTitle'>Current Category: {activeCategory.displayName}</h1>
+      < When condition={activeCategory}>
+        <h2 key={activeCategory.name}>{activeCategory.name}</h2>
+        <h4 id='categoryTitle'>{activeCategory.description} </h4>
+      </When >
 
-      }
 
 
     </>
