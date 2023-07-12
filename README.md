@@ -153,3 +153,53 @@ for now I have none and do not require one
 
 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
+# LAB - Class 39
+
+## Project: Redux - Additional Topics
+
+### Author: Reece Renninger
+
+### Problem Domain  
+
+In phase 4, we will be completing work on our Virtual Store by adding two full page views to the application: Product Details and Checkout.
+
+The user stories from Phases 1, 2 and 3 remain unchanged. For this phase, we are now adding the following new user stories to meet the new requirements.
+
+    As a user, I want to see a full detail view of a product so that I can make a more informed choice about purchasing it.
+    As a user, I want to view my full cart and initiate the checkout process so that I can purchase my items and have them delivered.
+
+
+### Links and Resources
+
+- [GitHub Actions ci/cd](https://github.com/ReeceRenninger/storefront/actions)
+- [front-end application](https://codesandbox.io/p/github/ReeceRenninger/storefront/rtk?layout=%257B%2522sidebarPanel%2522%253A%2522EXPLORER%2522%252C%2522rootPanelGroup%2522%253A%257B%2522direction%2522%253A%2522horizontal%2522%252C%2522contentType%2522%253A%2522UNKNOWN%2522%252C%2522type%2522%253A%2522PANEL_GROUP%2522%252C%2522id%2522%253A%2522ROOT_LAYOUT%2522%252C%2522panels%2522%253A%255B%257B%2522type%2522%253A%2522PANEL_GROUP%2522%252C%2522contentType%2522%253A%2522UNKNOWN%2522%252C%2522direction%2522%253A%2522vertical%2522%252C%2522id%2522%253A%2522cljz0cx8p00fu2a6eniihvw4x%2522%252C%2522sizes%2522%253A%255B70%252C30%255D%252C%2522panels%2522%253A%255B%257B%2522type%2522%253A%2522PANEL_GROUP%2522%252C%2522contentType%2522%253A%2522EDITOR%2522%252C%2522direction%2522%253A%2522horizontal%2522%252C%2522id%2522%253A%2522EDITOR%2522%252C%2522panels%2522%253A%255B%257B%2522type%2522%253A%2522PANEL%2522%252C%2522contentType%2522%253A%2522EDITOR%2522%252C%2522id%2522%253A%2522cljz0cx8p00fp2a6e47y1v23r%2522%257D%255D%252C%2522sizes%2522%253A%255B100%255D%257D%252C%257B%2522type%2522%253A%2522PANEL_GROUP%2522%252C%2522contentType%2522%253A%2522SHELLS%2522%252C%2522direction%2522%253A%2522horizontal%2522%252C%2522id%2522%253A%2522SHELLS%2522%252C%2522panels%2522%253A%255B%257B%2522type%2522%253A%2522PANEL%2522%252C%2522contentType%2522%253A%2522SHELLS%2522%252C%2522id%2522%253A%2522cljz0cx8p00ft2a6eyj2mm4sg%2522%257D%255D%252C%2522sizes%2522%253A%255B100%255D%257D%255D%257D%252C%257B%2522type%2522%253A%2522PANEL_GROUP%2522%252C%2522contentType%2522%253A%2522DEVTOOLS%2522%252C%2522direction%2522%253A%2522vertical%2522%252C%2522id%2522%253A%2522DEVTOOLS%2522%252C%2522panels%2522%253A%255B%257B%2522type%2522%253A%2522PANEL%2522%252C%2522contentType%2522%253A%2522DEVTOOLS%2522%252C%2522id%2522%253A%2522cljz0cx8p00fr2a6ekkw96qvc%2522%257D%255D%252C%2522sizes%2522%253A%255B100%255D%257D%255D%252C%2522sizes%2522%253A%255B50%252C50%255D%257D%252C%2522tabbedPanels%2522%253A%257B%2522cljz0cx8p00fp2a6e47y1v23r%2522%253A%257B%2522tabs%2522%253A%255B%257B%2522id%2522%253A%2522cljz0cx8p00fo2a6e6c3oxvj6%2522%252C%2522mode%2522%253A%2522permanent%2522%252C%2522type%2522%253A%2522FILE%2522%252C%2522filepath%2522%253A%2522%252FREADME.md%2522%257D%255D%252C%2522id%2522%253A%2522cljz0cx8p00fp2a6e47y1v23r%2522%252C%2522activeTabId%2522%253A%2522cljz0cx8p00fo2a6e6c3oxvj6%2522%257D%252C%2522cljz0cx8p00fr2a6ekkw96qvc%2522%253A%257B%2522id%2522%253A%2522cljz0cx8p00fr2a6ekkw96qvc%2522%252C%2522activeTabId%2522%253A%2522cljz0dh1p01e82a6ehpx4740f%2522%252C%2522tabs%2522%253A%255B%257B%2522type%2522%253A%2522TASK_PORT%2522%252C%2522taskId%2522%253A%2522dev%2522%252C%2522port%2522%253A5173%252C%2522id%2522%253A%2522cljz0dh1p01e82a6ehpx4740f%2522%252C%2522mode%2522%253A%2522permanent%2522%252C%2522path%2522%253A%2522%252F%2522%257D%255D%257D%252C%2522cljz0cx8p00ft2a6eyj2mm4sg%2522%253A%257B%2522tabs%2522%253A%255B%257B%2522id%2522%253A%2522cljz0cx8p00fs2a6e9lvko17v%2522%252C%2522mode%2522%253A%2522permanent%2522%252C%2522type%2522%253A%2522TASK_LOG%2522%252C%2522taskId%2522%253A%2522dev%2522%257D%255D%252C%2522id%2522%253A%2522cljz0cx8p00ft2a6eyj2mm4sg%2522%252C%2522activeTabId%2522%253A%2522cljz0cx8p00fs2a6e9lvko17v%2522%257D%257D%252C%2522showDevtools%2522%253Atrue%252C%2522showShells%2522%253Atrue%252C%2522showSidebar%2522%253Atrue%252C%2522sidebarPanelSize%2522%253A15%257D) (when applicable)
+
+### Collaborators
+
+- Sir Ike, The Honorable Nick, The Jester Ryan, Lord Kaeden on the whole lab
+
+### Setup
+
+#### `.env` requirements (where applicable)
+
+for now I have none and do not require one
+
+#### How to initialize/run your application (where applicable)
+
+- e.g. `npm start`
+
+#### How to use your library (where applicable)
+
+#### Features / Routes
+
+- Display products from an API call in a redux store that can be changed by user clicks on the categories.
+- Allow users to view their cart and total of the items within the cart.
+- Allow users to view product details by clicking the image.
+
+#### Tests
+
+- npm test
+
+#### UML
+
+![Alt text](<src/assets/image (1).png>)
