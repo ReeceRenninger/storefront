@@ -8,15 +8,24 @@ const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
-    //!! MAY NEED TO MODIFY THIS IF IKES WORKS AND MINE IS BROKEN
-    ADD_TO_CART: (state, action) => [...state, {
-      name: action.payload.name,
-      price: action.payload.price,
-    }],
-    REMOVE_FROM_CART: (state, action) => state.filter(product => product.name !== action.payload.name)
+    
+    ADD_TO_CART: (state, action) => {
+      return {
+        ...state,
+        cart: [...state.cart, action.payload],
+      }
+    },
+    REMOVE_FROM_CART: (state, action) => {
+      return {
+        ...state,
+        cart: state.cart.filter(product => product.name !== action.payload.name)
+      }
+    },
+    RESET: (state) => {
+      return state;
+    }
   }
 });
-
 export const { ADD_TO_CART, REMOVE_FROM_CART } = cartSlice.actions;
 
 export default cartSlice.reducer;

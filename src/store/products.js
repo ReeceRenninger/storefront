@@ -1,4 +1,4 @@
-import { createSlice, createAction, createReducer } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 import axios from 'axios';
 
@@ -7,6 +7,18 @@ export const getProducts = (activeCategory) => async(dispatch, getState) => {
   let response = await axios.get(`https://api-js401.herokuapp.com/api/v1/products?category=${activeCategory}`);
   console.log('initial product data from API call', response.data.results);
   dispatch(GET_PRODUCTS(response.data.results));
+}
+
+export const removeStock = (product) => async(dispatch) => {
+  product = {...product, inStock: product.inStock - 1};
+  const response = await axios.put(`https://api-js401.herokuapp.com/api/v1/products/${product._id}`, product);
+  dispatch(getProducts(product.category)); // response.data.results instead?
+}
+
+export const addStock = (product) => async(dispatch) => {
+  product = {...product, inStock: product.inStock};
+  const response = await axios.put(`https://api-js401.herokuapp.com/api/v1/products/${product._id}`, product);
+  dispatch(getProducts(product.category)); // response.data.results instead?
 }
 
 const initialState = {

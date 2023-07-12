@@ -2,7 +2,7 @@ import { Button, Card, CardActions, CardContent, CardMedia, Grid, Typography } f
 import { When } from 'react-if';
 import { useSelector, useDispatch } from 'react-redux';
 import { ADD_TO_CART } from '../../store/cart'; //!!trying to change import with createSlice, think this is broken?
-import { getProducts } from '../../store/products';
+import { getProducts, removeStock } from '../../store/products';
 import { useEffect } from 'react';
 import '../../../App.css'
 
@@ -15,7 +15,12 @@ function Products() {
   console.log('THESE ARE MY PRODUCTS', products);
   const { activeCategory } = useSelector((state) => state.categories);
   console.log('activeCategory on the Products page', activeCategory);
-  
+
+const useDispatcher = (product) => {
+  dispatch(ADD_TO_CART(product)); // add to cart
+  dispatch(removeStock(product)); // removes stock from in stock value after adding to cart
+}
+
   useEffect(() => {
     dispatch(getProducts(activeCategory.name));
   }, [activeCategory]);
@@ -50,7 +55,7 @@ function Products() {
                   </CardContent>
                   <CardActions>
                     <When condition={product.inStock}>
-                      <Button size="small" onClick={() => dispatch(ADD_TO_CART(product))}>Add to Cart</Button>
+                      <Button size="small" onClick={() => useDispatcher(product)}>Add to Cart</Button>
                     </When>
                     <Button size="small">View Details</Button>
                   </CardActions>

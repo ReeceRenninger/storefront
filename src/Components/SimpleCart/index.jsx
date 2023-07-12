@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { Box, IconButton, Typography } from "@mui/material";
 import { REMOVE_FROM_CART } from '../../store/cart'; //trying to change import with createSlice
+import { addStock } from '../../store/products';
+import { Box, IconButton, Typography } from "@mui/material";
 import DeleteIcon from '@mui/icons-material/Delete';
 import '../../../App.css';
 
@@ -8,6 +9,11 @@ const SimpleCart = () => {
 
   const dispatch = useDispatch();
   const { cart } = useSelector((state) => state.cart);
+
+  const removeDispatcher = (product) => {
+    dispatch(REMOVE_FROM_CART(product));
+    dispatch(addStock(product));
+  }
 
   return (
     <>
@@ -27,8 +33,8 @@ const SimpleCart = () => {
                 }}
               >
                 <Typography>{product.name}</Typography>
-                <IconButton>
-                  <DeleteIcon fontSize="small" onClick={() => dispatch(REMOVE_FROM_CART(product))} />
+                <IconButton  onClick={() => removeDispatcher(product)}>
+                  <DeleteIcon fontSize="small" />
                 </IconButton>
               </Box>
             )
