@@ -12,7 +12,7 @@ function ActiveCategory() {
     <>
 
       < When condition={activeCategory}>
-        <h2 key={activeCategory.name}>{activeCategory.name}</h2>
+        <h2 key={activeCategory.name}>Category: {activeCategory.name}</h2>
         <h4 id='categoryTitle'>{activeCategory.description} </h4>
       </When >
 
