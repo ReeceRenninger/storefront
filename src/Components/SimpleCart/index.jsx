@@ -1,9 +1,11 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { REMOVE_FROM_CART } from '../../store/cart'; //trying to change import with createSlice
+import { When } from 'react-if';
 import { addStock } from '../../store/products';
 import { Box, IconButton, Typography } from "@mui/material";
 import DeleteIcon from '@mui/icons-material/Delete';
 import '../../../App.css';
+import './styles.scss'
 
 const SimpleCart = () => {
 
@@ -17,31 +19,26 @@ const SimpleCart = () => {
 
   return (
     <>
-        {
-          cart.map((product, index) => {
-            return (
-              <Box
-                className='cart-items'
-                key={`cart-${index}`}
-                sx={{
-                  justifyContent: "space-between",
-                  display: "flex",
-                  flexDirection: "row",
-                  alignItems: "center",
-                  width: "80px",
-                  margin: 'auto',
-                }}
-              >
-                <Typography>{product.name}</Typography>
-                <IconButton  onClick={() => removeDispatcher(product)}>
-                  <DeleteIcon fontSize="small" />
-                </IconButton>
-              </Box>
-            )
-          }
-          )
-        }
-    
+      <When condition={cart.length > 0}>
+        <div className="simple-cart">
+          <ul>
+
+            {
+              cart.map((product, index) => (
+                <li key={`simpleCart-${index}`} className="item">
+                  {product.name}
+                  <span
+                    onClick={() => removeDispatcher(product)}
+                    className="remove"
+                  >
+                    X
+                  </span>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </When>
     </>
   );
 };
